@@ -12,17 +12,21 @@ const contactSchema = Schema(
     },
     phone: {
       type: String,
+
       minlength: 6,
+
     },
     favorite: {
       type: Boolean,
       default: false,
     },
+
     owner: {
       type: Schema.Types.ObjectId,
       ref: "user",
       require: true,
     },
+
   },
   { versionKey: false, timestamps: true }
 );
@@ -36,6 +40,7 @@ const joiAddContactSchema = Joi.object({
 
 const joiFavoriteSchema = Joi.object({
   favorite: Joi.boolean().required(),
+
 });
 
 const Contact = model("contact", contactSchema);
@@ -44,4 +49,5 @@ module.exports = {
   Contact,
   joiAddContactSchema,
   joiFavoriteSchema,
+
 };

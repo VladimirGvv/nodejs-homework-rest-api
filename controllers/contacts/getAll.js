@@ -12,6 +12,7 @@ const getAll = async (req, res) => {
       limit: Number(limit),
     }
   ).populate("owner", "_id email subscription");
+
   res.json({
     status: "success",
     code: 200,
